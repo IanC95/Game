@@ -17,6 +17,9 @@ def remove_punct(text):
     >>> remove_punct(",go!So.?uTh")
     'goSouTh'
     """
+
+    text = text.translate(None, '?!@#$£')
+    return text
     pass # The pass statement does nothing. Replace it with the body of your function.
     
     
@@ -36,6 +39,9 @@ def remove_spaces(text):
     >>> remove_spaces("   ")
     ''
     """
+
+    text = text.strip()
+    return text
     pass
 
 
@@ -51,6 +57,9 @@ def normalise_input(user_input):
     >>> normalise_input("HELP!!!!!!!")
     'help'
     """
+    remove_punct(user_input)
+    remove_spaces(user_input)
+    return user_input
     pass
 
     
@@ -74,8 +83,11 @@ def display_room(room):
     Note: <BLANKLINE> here means that doctest should expect a blank line.
     """
 
-    print(room)
-
+    print("")
+    print(room["name"])
+    print("")
+    print(room["description"])
+    print("")
     # pass # The pass statement does nothing. Replace it with the body of your function.
 
     
@@ -107,6 +119,9 @@ def print_menu_line(direction, leads_to):
     >>> print_menu_line("south", "Robs' room")
     Go SOUTH to Robs' room.
     """
+
+    print("Go " + direction + " to " + leads_to)
+
     pass
 
 
